@@ -19,7 +19,7 @@ def extract_from_gcs(color: str, year: int, month: int) -> Path:
 @task()
 def extract(path: Path) -> pd.DataFrame:
     """Data cleaning example"""
-    df = pd.read_parquet(path)
+    df = pd.read_parquet(path, index=False)
     # print(f"pre: missing passenger count: {df['passenger_count'].isna().sum()}")
     # df["passenger_count"].fillna(0, inplace=True)
     # print(f"post: missing passenger count: {df['passenger_count'].isna().sum()}")
