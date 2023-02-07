@@ -33,12 +33,11 @@ def write_bq(df: pd.DataFrame) -> None:
     gcp_credentials_block = GcpCredentials.load("my-gcs-creds")
 
     df.to_gbq(
-        destination_table="my_dataset.rides",
+        destination_table="my_dataset.more-rides",
         project_id="dtc-de-376923",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=500_000,
         if_exists="append",
-        index=False,
     )
 
 
