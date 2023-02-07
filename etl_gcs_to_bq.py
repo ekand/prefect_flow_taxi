@@ -11,7 +11,7 @@ def extract_from_gcs(color: str, year: int, month: int) -> Path:
     gcs_path = f"data/{color}/{color}_tripdata_{year}-{month:02}.parquet"
     gcs_block = GcsBucket.load("my-gcs-bucket")
     print(f'gcs_path 1: {gcs_path}')
-    gcs_block.get_directory(from_path=gcs_path, local_path='data')
+    gcs_block.get_directory(from_path=gcs_path, local_path='')
     print(f'gcs_path 2: {gcs_path}')
     return Path(gcs_path)
 
